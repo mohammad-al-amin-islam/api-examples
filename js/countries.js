@@ -38,7 +38,7 @@ const displayInfo = data =>{
     detailsDiv.innerHTML =`
         <h5>name: ${data.name.common}</h5>
         <p>population: ${data.population}</p>
-        <img src="${data.flags.svg}"/>
+        <img src="${data.flags.png}"/>
     `
     detailsDiv.style.textAlign = 'center';
 }
