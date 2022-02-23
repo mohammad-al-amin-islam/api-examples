@@ -1,9 +1,9 @@
 const loadData = () => {
     const getInput = document.getElementById('text-search');
     const getInputText = getInput.value;
-    getInput.value = " ";
+    getInput.value = "";
     if (getInputText == '') {
-        alert('gasdfg')
+        alert("You haven't given any input");
     }
     else {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${getInputText}`
@@ -19,7 +19,7 @@ const searchFoodForDisplay = (meals) => {
     const getContainer = document.getElementById('display-food');
     getContainer.textContent = ""
     if (meals.length == 0) {
-        //have to do
+        alert('cant find any food');
     }
     meals.forEach(meal => {
         const div = document.createElement('div');
