@@ -1,7 +1,10 @@
+document.getElementById('error-message').style.display = "none";
+
 const loadData = () => {
     const getInput = document.getElementById('text-search');
     const getInputText = getInput.value;
     getInput.value = "";
+    document.getElementById('error-message').style.display = "none";
     if (getInputText == '') {
         alert("You haven't given any input");
     }
@@ -9,10 +12,15 @@ const loadData = () => {
         const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${getInputText}`
         fetch(url)
             .then(res => res.json())
-            .then(data => searchFoodForDisplay(data.meals));
+            .then(data => searchFoodForDisplay(data.meals))
+            .catch(error => displayError(error));
     }
 
 
+}
+
+const displayError = (error) =>{
+    document.getElementById('error-message').style.display = "block";
 }
 
 const searchFoodForDisplay = (meals) => {
