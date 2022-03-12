@@ -1,5 +1,15 @@
-document.getElementById('error-message').style.display = "none";
+//when click enter button seacrh button will work
+const getButton = document.getElementById("button-search");
+const getSearchText = document.getElementById("text-search");
 
+getSearchText.addEventListener("keypress", function(event) {
+    // event.preventDefault();
+    if (event.keyCode == 13)
+        getButton.click();
+});
+
+
+document.getElementById('error-message').style.display = "none";
 const loadData = () => {
     const getInput = document.getElementById('text-search');
     const getInputText = getInput.value;
@@ -19,14 +29,15 @@ const loadData = () => {
 
 }
 
-const displayError = (error) =>{
+const displayError = (error) => {
+    console.log(error);
     document.getElementById('error-message').style.display = "block";
 }
 
 const searchFoodForDisplay = (meals) => {
     const getContainer = document.getElementById('display-food');
     getContainer.textContent = ""
-    if (meals.length == 0) {
+    if (meals == null) {
         alert('cant find any food');
     }
     meals.forEach(meal => {
